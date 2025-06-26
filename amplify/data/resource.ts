@@ -20,4 +20,6 @@ const schema = a.schema({
     transactionHistory: a.string().array()
   }).authorization(allow => [allow.authenticated()])
 });
-export const data = defineData({ schema });
+export const data = defineData({
+  schema
+});
