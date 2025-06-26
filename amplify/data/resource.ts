@@ -1,7 +1,4 @@
 import { a, defineData } from '@aws-amplify/backend';
-// Updated for deployment
-// to the latest version of Amplify Data Schema
-
 const schema = a.schema({
   Tenant: a.model({
     name: a.string(),
@@ -11,7 +8,7 @@ const schema = a.schema({
     rentPaid: a.float(),
     rentDue: a.float(),
     rentDueDate: a.string(),
-    transactionHistory: a.string().array(),
+    transactionHistory: a.string().array()
   }).authorization(allow => [allow.authenticated()]),
   Landlord: a.model({
     name: a.string(),
@@ -20,11 +17,9 @@ const schema = a.schema({
     tenants: a.string().array(),
     rentAmount: a.float(),
     rentDueDate: a.string(),
-    transactionHistory: a.string().array(),
+    transactionHistory: a.string().array()
   }).authorization(allow => [allow.authenticated()])
 });
-
-
 export const data = defineData({
   schema
 });
