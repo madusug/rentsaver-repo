@@ -1,4 +1,5 @@
 import { a, defineData } from '@aws-amplify/backend';
+// Updated for deployment
 
 const schema = a.schema({
   Tenant: a.model({
