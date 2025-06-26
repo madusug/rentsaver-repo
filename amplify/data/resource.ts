@@ -1,5 +1,4 @@
 import { a, defineData } from '@aws-amplify/backend';
-import { renderToStream } from 'vue/server-renderer';
 
 const schema = a.schema({
   Tenant: a.model({
@@ -7,6 +6,9 @@ const schema = a.schema({
     email: a.string(),
     bankAccountID: a.string(),
     rentGoal: a.float(),
+    rentPaid: a.float(),
+    rentDue: a.float(),
+    rentDueDate: a.string(),
     transactionHistory: a.string().array(),
   }).authorization(allow => [allow.authenticated()]),
   Landlord: a.model({
@@ -15,6 +17,7 @@ const schema = a.schema({
     bankAccountID: a.string(),
     tenants: a.string().array(),
     rentAmount: a.float(),
+    rentDueDate: a.string(),
     transactionHistory: a.string().array(),
   }).authorization(allow => [allow.authenticated()])
 });
